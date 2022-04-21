@@ -14,6 +14,7 @@ const initialState = {
   pokemons: [],
   types: [],
   pokemonsCopia: [],
+  pokemonDetail: [],
 };
 function rootReducer(state = initialState, action) {
   switch (action.type) {
@@ -36,7 +37,7 @@ function rootReducer(state = initialState, action) {
     case GET_POKEMON_BY_ID:
       return {
         ...state,
-        pokemons: [action.payload],
+        pokemonDetail: [action.payload],
       };
     case POST_POKEMON:
       return {

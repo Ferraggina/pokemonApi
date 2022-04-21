@@ -12,7 +12,7 @@ import axios from "axios";
 
 export function getPokemons() {
   return async function (dispatch) {
-    var json = await axios.get("/pokemons");
+    var json = await axios.get("http://localhost:3001/pokemons");
     return dispatch({
       type: GET_POKEMONS,
 
@@ -22,7 +22,7 @@ export function getPokemons() {
 }
 export function getTypes() {
   return async function (dispatch) {
-    var json = await axios.get("/types");
+    var json = await axios.get("http://localhost:3001/types");
     return dispatch({
       type: GET_TYPES,
       payload: json.data,
@@ -42,7 +42,7 @@ export function postPokemon(payload) {
         return alert("El pokemon con ese nombre ya existe, elija otro");
       } else {
         alert("Pokemon Creado");
-        var json = await axios.post("/pokemons", payload);
+        var json = await axios.post("http://localhost:3001/pokemons", payload);
         return json;
       }
     }
@@ -82,7 +82,7 @@ export function orderBySrength(payload) {
 export function getPokemonsByName(payload) {
   return async function (dispatch) {
     try {
-      var json = await axios.get(`/pokemons?=${payload}`);
+      var json = await axios.get(`http://localhost:3001/pokemons?=${payload}`);
     } catch (error) {
       console.log(error);
     } finally {
@@ -98,11 +98,14 @@ export function getPokemonsByName(payload) {
 export function getPokemonById(payload) {
   return async (dispatch) => {
     try {
-      var json = await axios.get(`/pokemons/${payload}`);
+      var json = await axios.get(`http://localhost:3001/pokemons/${payload}`);
+      console.log(json.data);
       return dispatch({
         type: GET_POKEMON_BY_ID,
         payload: json.data,
       });
-    } catch (error) {}
+    } catch (error) {
+      console.log(error);
+    }
   };
 }
