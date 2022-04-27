@@ -15,16 +15,16 @@ module.exports = (sequelize) => {
       unique: true,
     },
     //hp
-    life: {
+    hp: {
       type: DataTypes.INTEGER,
     },
-    attack: {
+    str: {
       type: DataTypes.INTEGER,
     },
-    defense: {
+    def: {
       type: DataTypes.INTEGER,
     },
-    speed: {
+    spd: {
       type: DataTypes.INTEGER,
     },
     height: {
@@ -34,6 +34,10 @@ module.exports = (sequelize) => {
       type: DataTypes.INTEGER,
     },
     //image
+    createdInDb: {
+      type: DataTypes.BOOLEAN,
+      defaultValue: true,
+    },
     sprite: {
       type: DataTypes.STRING,
       validate: { isUrl: true },

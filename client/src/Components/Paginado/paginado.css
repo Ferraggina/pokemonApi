@@ -1,0 +1,42 @@
+ul {
+    display: inline-block;
+    padding: 0;
+    margin: 10px;
+  }
+  
+  ul li {
+    display: inline;
+  }
+  
+  ul li a {
+    float: left;
+    padding: 8px 16px;
+    text-decoration: none;
+    color: rgb(219, 219, 219);
+    transition: background-color 0.3s;
+    background-color: rgba(34, 104, 209, 0.551);
+   font-size:x-large;
+   border: double;
+   border-width: 0.5em;
+   border-radius: 15px;
+   border-color: rgba(217, 20, 33, 0.434);
+  }
+  
+  ul li a.number {
+    background-color: #ff3434;
+    color: white;
+    
+  }
+  
+  ul li a:hover:not(.number) {
+    background-color: rgba(227, 17, 17, 0.486);
+  }
+  .paginado {
+      display: flex;
+      justify-content: center;
+     border-radius: 15px;
+     
+   
+     
+  }
+  

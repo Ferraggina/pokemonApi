@@ -67,7 +67,7 @@ export default function Detail() {
             <div className="detailImg">
               <img
                 className="size-img"
-                src={pokemon[0].sprite}
+                src={pokemon[0].image}
                 alt="no funciona la imagen"
               />
             </div>

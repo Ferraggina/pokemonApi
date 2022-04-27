@@ -46,17 +46,18 @@ function rootReducer(state = initialState, action) {
     case FILTER_ALL:
       const allPokemons = state.pokemonsCopia;
       const filterType =
-        action.payload.type === "all"
+        action.payload.type === "all" // filtro normal = 30, 25 son de api ,5 created
           ? allPokemons
           : allPokemons.filter((e) => e.types.includes(action.payload.type));
       const filterOrigin =
         action.payload.origin === "db"
-          ? filterType.filter((e) => e.createdInDb)
-          : filterType.filter((e) => !e.createdInDb);
+          ? filterType.filter((e) => e.createdInDb) // quedan 5
+          : filterType.filter((e) => !e.createdInDb); //quedan 25
       return {
         ...state,
         pokemons: action.payload.origin === "all" ? filterType : filterOrigin,
       };
+
     case ORDER_BY_DEFAULT:
       let dbArray = state.pokemons.filter((e) => e.id.length > 5);
       let apiArray = state.pokemons.filter((e) => typeof e.id === "number");

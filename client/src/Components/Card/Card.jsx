@@ -1,45 +1,36 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import "../Card/card.css";
 
 export default function Card({ id, name, image, str, types, hp, spd, def }) {
   return (
-    <Link to={"/home/" + id}>
-      <div key={id}>
+    <div key={id} className="cardContainer">
+      <Link to={"/home/" + id}>
         <div className="card">
-          <p className="hp">
-            <span>HP</span>
-            {hp}
-          </p>
-          <img className="pokeImagen" src={image} alt="La imagen no carga" />
           <h2 className="pokeName">{name[0].toUpperCase() + name.slice(1)}</h2>
+          <img className="pokeImage" src={image} alt="La imagen no carga" />
           <div className="pokeTypes">
-            {types.length === 1 ? (
-              <span>
-                <img src={types[0]} alt={`${types[0]}`} />
-              </span>
-            ) : (
-              <span>
-                <img src={types[0]} alt={`${types[0]}`} />
-                <img src={types[1]} alt={`${types[1]}`} />
-              </span>
-            )}
+            {types.length > 0 &&
+              types.map((t) => <p className="eachType">{t.toUpperCase()}</p>)}
+            <div className="hpDiv">
+              <p className="hp">
+                <span>HP:{hp}</span>
+              </p>
+            </div>
           </div>
           <div className="pokeStats">
             <div>
-              <h3>{str}</h3>
-              <p>Ataque</p>
+              <p>Ataque:- {str} - </p>
             </div>
             <div>
-              <h3>{def}</h3>
-              <p>Defensa</p>
+              <p>Defensa:- {def} - </p>
             </div>
             <div>
-              <h3>{spd}</h3>
-              <p>Velocidad</p>
+              <p>Velocidad: {spd} </p>
             </div>
           </div>
         </div>
-      </div>
-    </Link>
+      </Link>
+    </div>
   );
 }

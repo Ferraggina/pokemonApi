@@ -43,6 +43,7 @@ export function postPokemon(payload) {
       } else {
         alert("Pokemon Creado");
         var json = await axios.post("http://localhost:3001/pokemons", payload);
+
         return json;
       }
     }
@@ -50,6 +51,7 @@ export function postPokemon(payload) {
 }
 
 export function filterPokemonsByType(payload) {
+  console.log(payload);
   return {
     type: FILTER_ALL,
     payload,
@@ -73,7 +75,7 @@ export function orderByName(payload) {
     payload,
   };
 }
-export function orderBySrength(payload) {
+export function orderByStrength(payload) {
   return {
     type: ORDER_BY_SRENGTH,
     payload,
@@ -82,7 +84,9 @@ export function orderBySrength(payload) {
 export function getPokemonsByName(payload) {
   return async function (dispatch) {
     try {
-      var json = await axios.get(`http://localhost:3001/pokemons?=${payload}`);
+      var json = await axios.get(
+        `http://localhost:3001/pokemons?name=${payload}`
+      );
     } catch (error) {
       console.log(error);
     } finally {

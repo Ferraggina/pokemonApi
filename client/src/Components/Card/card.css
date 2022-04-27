@@ -1,0 +1,130 @@
+/* *,*:before,*:after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+} */
+a:link, a:visited, a:active {
+    text-decoration:none;
+}
+html{
+    font-size: 62%;
+    background-image: url("https://www.teahub.io/photos/full/304-3049893_anime-landscape-sunset-plants-field-sky-anime-red.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+.cardContainer {
+    display: flex;
+    justify-content: space-evenly;
+    background-image: url("file:///C:/Users/ceffe/OneDrive/Desktop/PI-Pokemon-main/client/src/assets/pokebola.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 93%;
+    background-color: rgb(255, 243, 243);
+    background-position: center center;
+   border-radius: 100px;
+    padding: 0;
+    
+  
+    font-family: "Poppins", sans-serif;
+    width: 400px;
+    
+    border-style: double;
+    border-width: 1em;
+    border-color: rgba(228, 27, 27, 0.677);
+  
+  
+    top: 50%;
+    left: 50%;
+    margin-bottom: 50px;
+
+    box-shadow: 0 20px 30px rgba(0, 0, 0, 0.255);
+}
+
+.card{
+
+    position: relative;
+    width: 100%;
+     
+    
+    border-radius: 10px;
+  }
+.pokeName{
+    color: rgba(245, 245, 246, 0.896);
+    font-size: large;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    background-color: #d01020b0;
+    border-radius: 1em;
+
+}
+.pokeImage {
+    display: block;
+    width: 180px;
+    height: 200px;
+    position: relative;
+    margin: 20px auto;
+}
+.hpDiv{
+    display: flex;
+    flex-direction: row-reverse;
+    
+}
+  .hp {
+
+    
+    
+    background-color: #db0e0ea0;
+    text-align: center;
+    padding: 8px;
+    border-radius: 30px;
+    right: 10px;
+    font-size: medium;
+ }
+  .pokeName {
+    text-align: center;
+    font-weight: 600; 
+  }
+  
+  
+  .hp span {
+    
+    letter-spacing: 0.4px;
+   
+    color: black;
+  }
+  .pokeTypes{
+      display: flex;
+      justify-items: baseline;
+  }
+  .eachType{
+    background: linear-gradient(50deg, #36d1dc, #5b86e5);
+    border-radius: 30px;
+    width: 85px;
+    height: 30px;
+    color:rgb(12, 12, 12);
+    font-size: 16px;
+    text-align: center;
+    font-weight:500;
+    box-shadow: 2px 2px .4em rgb(168, 166, 166), -1px 0 .4em rgb(223, 223, 223);
+    padding-top: 5px;
+    
+}
+.pokeStats{
+
+    display: flex;
+   justify-content: baseline;
+   text-align: left;
+   margin-top: 1px;
+   font-weight: 100;
+    font-size: 16px;
+    background: linear-gradient(50deg, #dc36497f, #5b87e56c);
+    border-radius: 4em;
+    color: black;
+    position:static;
+    margin-bottom: 5px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    box-shadow:2px 2px .4em rgb(168, 166, 166), -1px 0 .4em rgb(223, 223, 223); 
+    padding: 1px;
+    
+
+}

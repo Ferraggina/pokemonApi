@@ -26,12 +26,28 @@ const getPokeApi = async () => {
 
 const getPokeDb = async () => {
   try {
-    return await Pokemon.findAll({
+    let pokeDB = await Pokemon.findAll({
       include: {
         model: Type,
         attributes: ["name"],
       },
     });
+    pokeDB = pokeDB.map((e) => {
+      return {
+        id: e.id,
+        name: e.name,
+        hp: e.hp,
+        str: e.str,
+        def: e.def,
+        spd: e.spd,
+        height: e.height,
+        weight: e.weight,
+        image: e.sprite,
+        createdInDb: e.createdInDb,
+        types: e.types.map((type) => type.name),
+      };
+    });
+    return pokeDB;
   } catch (error) {
     console.log(error);
     return error;
@@ -57,17 +73,15 @@ const getPokeByName = async (name) => {
       let pokeDbName = {
         id: searchPokeByNameDb.id,
         name: searchPokeByNameDb.name,
-        life: searchPokeByNameDb.life,
-        attack: searchPokeByNameDb.attack,
-        defense: searchPokeByNameDb.defense,
-        speed: searchPokeByNameDb.speed,
+        hp: searchPokeByNameDb.hp,
+        str: searchPokeByNameDb.str,
+        def: searchPokeByNameDb.def,
+        spd: searchPokeByNameDb.spd,
         height: searchPokeByNameDb.height,
         weight: searchPokeByNameDb.weight,
-        sprite: searchPokeByNameDb.sprite,
-        types:
-          searchPokeByNameDb.types.length < 2
-            ? [searchPokeByNameDb.types[0]]
-            : [searchPokeByNameDb.types[0], searchPokeByNameDb.types[1]],
+        image: searchPokeByNameDb.sprite,
+        createdInDb: searchPokeByNameDb.createdInDb,
+        types: searchPokeIdDb.types.map((type) => type.name),
       };
       return pokeDbName;
     } else {
@@ -91,19 +105,17 @@ const getPokeById = async (id) => {
       });
       console.log("Pokemon base de datos", searchPokeIdDb);
       let pokeDbId = {
-        id: searchPokeIdDb.id,
-        name: searchPokeIdDb.name,
-        life: searchPokeIdDb.life,
-        attack: searchPokeIdDb.attack,
-        defense: searchPokeIdDb.defense,
-        speed: searchPokeIdDb.speed,
-        height: searchPokeIdDb.height,
-        weight: searchPokeIdDb.weight,
-        sprite: searchPokeIdDB.sprite,
-        types:
-          searchPokeIdDB.types.length < 2
-            ? [searchPokeIdDB.types[0]]
-            : [searchPokeIdDB.types[0], searchPokeIdDB.types[1]],
+        id: searchPokeByNameDb.id,
+        name: searchPokeByNameDb.name,
+        hp: searchPokeByNameDb.hp,
+        str: searchPokeByNameDb.str,
+        def: searchPokeByNameDb.def,
+        spd: searchPokeByNameDb.spd,
+        height: searchPokeByNameDb.height,
+        weight: searchPokeByNameDb.weight,
+        image: searchPokeByNameDb.sprite,
+        createdInDb: searchPokeByNameDb.createdInDb,
+        types: searchPokeIdDb.types.map((type) => type.name),
       };
       return pokeDbId;
     } else {
@@ -123,51 +135,34 @@ const objPokeApi = (poke) => {
   const objPokeApi = {
     id: poke.id,
     name: poke.name,
-    life: poke.stats[0].base_stat,
-    attack: poke.stats[1].base_stat,
-    defense: poke.stats[2].base_stat,
-    speed: poke.stats[5].base_stat,
+    hp: poke.stats[0].base_stat,
+    str: poke.stats[1].base_stat,
+    def: poke.stats[2].base_stat,
+    spd: poke.stats[5].base_stat,
     height: poke.height,
     weight: poke.weight,
-    sprite: poke.sprites.other.dream_world.front_default,
-    types:
-      poke.types.length < 2
-        ? [{ name: poke.types[0].type.name }]
-        : [
-            { name: poke.types[0].type.name },
-            { name: poke.types[1].type.name },
-          ],
+    image: poke.sprites.other.dream_world.front_default,
+    types: poke.types.map((e) => e.type.name),
   };
   return objPokeApi;
 };
 
 const postPokeDb = async (pokeData) => {
   try {
-    const {
-      name,
-      life,
-      attack,
-      defense,
-      speed,
-      height,
-      weight,
-      sprite,
-      types,
-    } = pokeData;
+    const { name, hp, str, def, spd, height, weight, sprite, types } = pokeData;
+    console.log(types);
     const miPoke = await Pokemon.create({
       name,
-      life,
-      attack,
-      defense,
-      speed,
+      hp,
+      str,
+      def,
+      spd,
       height,
       weight,
       sprite,
     });
-    const pokeTypeDb = await Type.findAll({
-      where: { name: types },
-    });
-    let createdMyPoke = miPoke.addType(pokeTypeDb);
+
+    let createdMyPoke = await miPoke.addType(types);
     return createdMyPoke;
   } catch (error) {
     console.log(error);

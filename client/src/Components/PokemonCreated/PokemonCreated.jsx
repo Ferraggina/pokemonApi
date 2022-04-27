@@ -397,10 +397,10 @@ function validate(input) {
   } else if (!numbers.test(input.weight)) {
     errors.weight = "Peso deberia ser un entero positivo";
   }
-  if (!input.image) {
-    errors.image = "Se requiere imagen";
-  } else if (!urlValidate.test(input.image)) {
-    errors.image = "Coloque un URL valida";
+  if (!input.sprite) {
+    errors.sprite = "Se requiere imagen";
+  } else if (!urlValidate.test(input.sprite)) {
+    errors.sprite = "Coloque un URL valida";
   }
   if (input.types.length === 0) {
     errors.types = "Se requiere el tipo de pokemon";
@@ -422,7 +422,7 @@ export default function PokemonCreated() {
     spd: 0,
     height: 0,
     weight: 0,
-    image: "",
+    sprite: "",
     types: [],
   });
   const isEnabled = Object.keys(errors).length === 0 && input.name !== "";
@@ -469,7 +469,7 @@ export default function PokemonCreated() {
       spd: 0,
       height: 0,
       weight: 0,
-      image: "",
+      sprite: "",
       types: [],
     });
   }
@@ -613,15 +613,15 @@ export default function PokemonCreated() {
                   <label>Image:</label>
                   <input
                     type="text"
-                    value={input.image}
-                    name="image"
+                    value={input.sprite}
+                    name="sprite"
                     placeholder="Insert image URL"
                     onChange={(e) => handleChange(e)}
                   />
                 </div>
                 <div className="form-group">
-                  {errors.image && (
-                    <div className="form-errors">{errors.image}</div>
+                  {errors.sprite && (
+                    <div className="form-errors">{errors.sprite}</div>
                   )}
                 </div>
               </div>

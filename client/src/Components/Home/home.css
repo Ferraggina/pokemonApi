@@ -1,0 +1,33 @@
+.continer{
+    
+    display: flex;
+
+
+}
+.nav{
+   float: left;
+   text-align: center;
+   
+    
+}
+.cards{
+   
+    display: flex;
+    flex-wrap: wrap;    
+    padding: 10px 10px;
+     justify-content: space-between;
+    
+   
+}
+.selectBox{
+    height: 40px;
+    border-radius: 5%;
+    font-size: 12px; 
+    font-weight: 500;
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 1px 0px 0px;
+    text-align: center;
+    min-width: 60px;
+    }
+   
+
+
