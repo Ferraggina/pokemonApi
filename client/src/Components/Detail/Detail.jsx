@@ -2,56 +2,66 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useParams } from "react-router-dom";
 import { getPokemonById } from "../../Redux/Action/index";
+import "../Detail/detail.css";
 
 export default function Detail() {
   const dispatch = useDispatch();
-  const params = useParams();
+  const { id } = useParams();
   const pokemon = useSelector((state) => state.pokemonDetail);
 
   useEffect(() => {
-    dispatch(getPokemonById(params.id));
-  }, [dispatch, params.id]);
+    setTimeout(() => dispatch(getPokemonById(id)), 2000);
+  }, [dispatch, id]);
 
   return (
     <div>
-      <nav className="navBar">
-        <Link to="/home"></Link>
+      <nav className="buttonBack">
         <Link to="/home">
-          <button className="buttonNav">Volver</button>
+          <button className="boton">VOLVER</button>
         </Link>
       </nav>
 
-      {pokemon.length > 0 ? (
-        <div className="container">
-          <h1 className="title">{pokemon[0].name}</h1>
-          <span className="title2">ID:{pokemon[0].id}</span>
+      {pokemon.length === 0 ? (
+        <div className="loaderDetail">
+          <img
+            src="https://i.pinimg.com/originals/9f/b1/25/9fb125f1fedc8cc62ab5b20699ebd87d.gif"
+            alt="no funciona la imagen"
+          />
+          <p>CARGANDO...</p>
+        </div>
+      ) : (
+        <div className="containerDetail">
+          <h1 className="titleDetail">{pokemon[0].name.toUpperCase()}</h1>
+
           <div className="detailRow">
-            <div className="detail">
-              <label>Salud:{pokemon[0].hp}</label>
-            </div>
             <div className="detailRow">
               <div className="detail">
-                <label>Fuerza:{pokemon[0].str}</label>
+                <label>Salud: {pokemon[0].hp}</label>
               </div>
             </div>
             <div className="detailRow">
               <div className="detail">
-                <label>Defensa:{pokemon[0].def}</label>
+                <label>Fuerza: {pokemon[0].str}</label>
               </div>
             </div>
             <div className="detailRow">
               <div className="detail">
-                <label>Velocidad:{pokemon[0].spd}</label>
+                <label>Defensa: {pokemon[0].def}</label>
               </div>
             </div>
             <div className="detailRow">
               <div className="detail">
-                <label>Altura:{pokemon[0].height}</label>
+                <label>Velocidad: {pokemon[0].spd}</label>
               </div>
             </div>
             <div className="detailRow">
               <div className="detail">
-                <label>Peso:{pokemon[0].weight}</label>
+                <label>Altura: {pokemon[0].height}</label>
+              </div>
+            </div>
+            <div className="detailRow">
+              <div className="detail">
+                <label>Peso: {pokemon[0].weight}</label>
               </div>
             </div>
             <div className="detailRow">
@@ -59,8 +69,8 @@ export default function Detail() {
                 <label>
                   Tipo:
                   {pokemon[0]?.types.length === 1
-                    ? pokemon[0].types[0].name
-                    : `${pokemon[0].types[0].name} & ${pokemon[0].types[1].name}`}
+                    ? pokemon[0].types
+                    : `${pokemon[0].types[0]} & ${pokemon[0].types[1]}`}
                 </label>
               </div>
             </div>
@@ -73,8 +83,6 @@ export default function Detail() {
             </div>
           </div>
         </div>
-      ) : (
-        <p>Cargando</p>
       )}
     </div>
   );

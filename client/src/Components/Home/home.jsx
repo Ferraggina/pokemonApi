@@ -23,7 +23,7 @@ export default function Home() {
   const dispatch = useDispatch();
   const allPokemons = useSelector((state) => state.pokemons);
   const allTypes = useSelector((state) => state.types);
-  const [name, setName] = useState("");
+
   const [currentPage, setCurrentPage] = useState(1);
 
   //
@@ -133,7 +133,7 @@ export default function Home() {
   //     }
   //   }
   return (
-    <div className="container">
+    <div className="containerHome">
       <div className="nav">
         <div>
           <Link to="/home">
@@ -141,7 +141,7 @@ export default function Home() {
           </Link>
           <div className="navItem">
             <li>
-              <select name="selectBox" onChange={(e) => handleSort(e)}>
+              <select className="selectBox" onChange={(e) => handleSort(e)}>
                 <option value="def">Ordenar: Default</option>
                 <option value="asc">Ordenar: A-Z</option>
                 <option value="desc">Ordenar: Z-A</option>
@@ -150,7 +150,10 @@ export default function Home() {
               </select>
             </li>
             <li>
-              <select name="selectBox" onChange={(e) => handleFilterCreated(e)}>
+              <select
+                className="selectBox"
+                onChange={(e) => handleFilterCreated(e)}
+              >
                 <option value="all"> Todos Pokemons</option>
                 <option value="api"> Originales Pokemons</option>
                 <option value="db">Createdos Pokemons</option>
@@ -161,7 +164,7 @@ export default function Home() {
                 className="selectBox"
                 onChange={(e) => handleFilterType(e)}
               >
-                <option value="all">All Types</option>
+                <option value="all">Todos los Tipos</option>
                 {allTypes?.map((e) => {
                   return (
                     <option value={e.name} key={e.id}>
@@ -173,49 +176,51 @@ export default function Home() {
             </li>
             <li>
               <Link to="/pokemons">
-                <button>Crea Tu Pokemon</button>
+                <button className="btnI">Crea Tu Pokemon</button>
               </Link>
-            </li>
-            <li>
-              <button onClick={(e) => handleClick(e)}>Pokemons random</button>
             </li>
           </div>
           <div className="searchDiv">
             <SearchBar setCurrentPage={setCurrentPage} />
           </div>
         </div>
-        <div className="fondo">
-          <div className="cards">
-            {currentPokemons.length === 0 ? (
-              <h2 className="h2error">
-                "There are no pokemons available. Try changing your filters"
-              </h2>
-            ) : (
-              currentPokemons.map((e) => {
-                return (
-                  <Card
-                    name={e.name}
-                    key={e.id}
-                    image={e.image}
-                    str={e.str}
-                    types={e.types}
-                    spd={e.spd}
-                    def={e.def}
-                    hp={e.hp}
-                    id={e.id}
-                  />
-                );
-              })
-            )}
-          </div>
+      </div>
+      <div className="fondo">
+        <div className="cards">
+          {currentPokemons.length === 0 ? (
+            <h2 className="loaderHome">
+              CARGANDO...
+              <img
+                className="imgLoader"
+                src="https://i.pinimg.com/originals/4b/80/c0/4b80c01ccd0042f9b397924752a79661.gif"
+                alt=""
+              />
+            </h2>
+          ) : (
+            currentPokemons.map((e) => {
+              return (
+                <Card
+                  name={e.name}
+                  key={e.id}
+                  image={e.image}
+                  str={e.str}
+                  types={e.types}
+                  spd={e.spd}
+                  def={e.def}
+                  hp={e.hp}
+                  id={e.id}
+                />
+              );
+            })
+          )}
         </div>
-        <div className="paginado">
-          <Paginado
-            pokemonsPerPage={pokemonsPerPage}
-            allPokemons={allPokemons.length}
-            paginado={paginado}
-          />
-        </div>
+      </div>
+      <div className="paginado">
+        <Paginado
+          pokemonsPerPage={pokemonsPerPage}
+          allPokemons={allPokemons.length}
+          paginado={paginado}
+        />
       </div>
     </div>
   );

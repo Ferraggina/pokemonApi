@@ -105,16 +105,16 @@ const getPokeById = async (id) => {
       });
       console.log("Pokemon base de datos", searchPokeIdDb);
       let pokeDbId = {
-        id: searchPokeByNameDb.id,
-        name: searchPokeByNameDb.name,
-        hp: searchPokeByNameDb.hp,
-        str: searchPokeByNameDb.str,
-        def: searchPokeByNameDb.def,
-        spd: searchPokeByNameDb.spd,
-        height: searchPokeByNameDb.height,
-        weight: searchPokeByNameDb.weight,
-        image: searchPokeByNameDb.sprite,
-        createdInDb: searchPokeByNameDb.createdInDb,
+        id: searchPokeIdDb.id,
+        name: searchPokeIdDb.name,
+        hp: searchPokeIdDb.hp,
+        str: searchPokeIdDb.str,
+        def: searchPokeIdDb.def,
+        spd: searchPokeIdDb.spd,
+        height: searchPokeIdDb.height,
+        weight: searchPokeIdDb.weight,
+        image: searchPokeIdDb.sprite,
+        createdInDb: searchPokeIdDb.createdInDb,
         types: searchPokeIdDb.types.map((type) => type.name),
       };
       return pokeDbId;

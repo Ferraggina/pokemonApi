@@ -1,0 +1,193 @@
+
+
+.containerCreated {
+    background-image: url("http://25.media.tumblr.com/3a8010f28b53e9f76b88160c102db814/tumblr_mt6lm3PUjy1sq3bjlo1_500.gif");
+    width: 50%;
+    height:100%;
+    position: absolute;
+    background-size: cover;
+    margin-left: 30em;
+    margin-top: 5em;
+    color:black;
+    border-radius: 2em;
+    border-width: 10px;
+    border-style: double;
+    border-color: rgba(226, 40, 40, 0.762);
+
+}
+
+
+
+.signup-form {    
+    width: 80%; }
+.register-form {
+
+        padding: 0px 30px 10px 30px;
+     }
+        
+        
+ .form-row {
+            display: flex;
+            align-content: initial;
+            margin: 0 -15px; 
+            text-align: left;
+            margin-left: 20px;
+            font-size: 50px;
+        }
+.form-row label {
+            font-size: 25px;
+        }
+ .form-row input {
+            height: 30px;    
+            background: none;
+            float: right;
+            vertical-align: baseline;
+            clear: both;
+            display: auto;    
+            border: 3px solid black;    
+            box-sizing: inherit;
+            font-family: 'Montserrat';
+            font-weight: 800;
+            font-size: 18px; }
+.form-row input:focus, select:focus {
+            border: 3px solid #ff0501; }
+            
+           
+.form-row .form-group {
+              width: 50%;
+              padding: 0 15px;}
+          
+.form-group {
+            width: 100%;   
+            margin-bottom: 23px;
+            justify-content: left;
+            position: relative; 
+            font-size: 20px;}
+        
+ .form-errors {   
+            width: 100%;
+            margin-bottom: -20px;
+            vertical-align: bottom;
+            position: relative;
+            font-size: 25px; 
+            color: rgb(13, 12, 12);
+            background-color: rgba(255, 38, 38, 0.549);
+            border-radius: 1em;
+            text-align: center;
+        }
+        
+.form-row-cb {
+                display: flex;        
+                flex-wrap: no-wrap;   
+                text-align: left;
+                margin-left: 20px;
+                font-size: 50px;
+                float: right;
+                clear: both;
+            }
+        
+.form-group-cb {
+            text-align: left;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            float: right;
+            width: 150%;   
+            margin-bottom: 23px;
+            
+            position: relative; 
+            font-size: 21px;
+            font-weight: 600;
+            float: right;
+            clear: both;
+            
+        }
+.form-errors-cb {   
+    width: 100%;
+    height: 4em;
+   padding-top: 5px;
+   padding-bottom: 8px;
+   margin-left: 5px;
+    vertical-align: bottom;
+    position: relative;
+    font-size: 25px; 
+    font-weight: 900;
+    color: rgb(166, 3, 3);
+    
+    border-radius: 1em;
+    text-align: center;}   
+        
+.div-cb{
+            border: 3px solid black;
+            margin: 5px 5px 5px 5px;
+            background: rgb(195, 193, 193, 0.5);  
+            
+        }
+        
+.inpCheckbox {
+            width: 20px;    
+        }
+        
+ .form-row-submit {
+            height: 200px;    
+            float: right;
+            justify-content: right;
+        
+        }
+        
+        
+  .h2TitleCreate {
+            line-height: 1.66;
+            display: flex;
+            justify-content: center;
+            margin-right: 10px;
+            margin-top: -15px;
+            padding: 0;
+            font-weight: 800;
+            color: #222;    
+            font-size: 40px;
+            text-transform: uppercase;
+            margin-bottom: 32px;
+             }
+        
+        
+        .buttonSubmit {
+            display: flex;
+            justify-content: center;
+            width: 6em;
+            height: 2em;
+            color: #202223;
+            border-radius: 5px;
+            box-shadow: rgba(0, 0, 0, 0.05) 0px 1px 0px 0px;
+            font-weight: 500;
+            font-size: x-large;
+            margin-right: 100px;
+            text-align: center;
+            padding-top: 1em;
+            padding-bottom: 2em;
+        }
+.form-row-submit{
+    position:relative;
+    bottom: 2em;
+    right:-19em;
+   
+}
+        
+        
+   .buttonNav{  
+            display: inline-block;
+            outline: 0;
+            cursor: pointer;
+            text-align: center;
+            border: 1px solid #157fd67c;
+            padding: 8px 18px;
+            height: 40px;
+            min-width: 100px;
+            color: #202223;
+            background: #2e6ad98d;
+            border-radius: 4px;
+            font-weight: 500;
+            font-size: 15px;
+            box-shadow: rgba(0, 0, 0, 0.555) 0px 1px 0px 0px;
+        }
+      

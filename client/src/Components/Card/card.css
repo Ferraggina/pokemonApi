@@ -6,13 +6,7 @@
 a:link, a:visited, a:active {
     text-decoration:none;
 }
-html{
-    font-size: 62%;
-    background-image: url("https://www.teahub.io/photos/full/304-3049893_anime-landscape-sunset-plants-field-sky-anime-red.jpg");
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-}
+
 .cardContainer {
     display: flex;
     justify-content: space-evenly;

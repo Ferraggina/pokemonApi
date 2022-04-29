@@ -81,28 +81,43 @@ export function orderByStrength(payload) {
     payload,
   };
 }
+// export function getPokemonsByName(payload) {
+//   return async function (dispatch) {
+//     try {
+//       var json = await axios.get(
+//         `http://localhost:3001/pokemons?name=${payload}`
+//       );
+//     } catch (error) {
+//       console.log(error);
+//     } finally {
+//       if (json) {
+//         return dispatch({
+//           type: GET_POKEMON_BY_NAME,
+//           payload: json.data,
+//         });
+//       } else return alert("Pokemon no encontrado");
+//     }
+//   };
+// }
 export function getPokemonsByName(payload) {
   return async function (dispatch) {
     try {
-      var json = await axios.get(
+      const json = await axios.get(
         `http://localhost:3001/pokemons?name=${payload}`
       );
+      return dispatch({
+        type: GET_POKEMON_BY_NAME,
+        payload: json.data,
+      });
     } catch (error) {
-      console.log(error);
-    } finally {
-      if (json) {
-        return dispatch({
-          type: GET_POKEMON_BY_NAME,
-          payload: json.data,
-        });
-      } else return alert("Pokemon no encontrado");
+      alert("No existe el pokemon, recarga la pagina");
     }
   };
 }
-export function getPokemonById(payload) {
+export function getPokemonById(id) {
   return async (dispatch) => {
     try {
-      var json = await axios.get(`http://localhost:3001/pokemons/${payload}`);
+      const json = await axios.get(`http://localhost:3001/pokemons/${id}`);
       console.log(json.data);
       return dispatch({
         type: GET_POKEMON_BY_ID,

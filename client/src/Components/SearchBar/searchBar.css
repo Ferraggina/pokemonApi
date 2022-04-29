@@ -1,0 +1,28 @@
+.busca {
+    font-family: monospace;
+  }
+.buscador {
+    padding: 6px;
+    border: none;
+    margin-top: 8px;
+    font-size: 17px;
+    background-color: rgba(42, 97, 227, 0.581);
+    border-radius: 10px;
+    color: whitesmoke;
+    cursor: pointer;
+  }
+  #bt {
+    cursor: pointer;
+    border-radius: 0 13px 13px 0;
+    margin-right: 10px;
+    width: 300px;
+    transition-duration: 0.4s;
+    font-weight: bold;
+    background-color: whitesmoke;
+    border: 1px solid whitesmoke;
+    color: rgba(250, 53, 53, 0.639);
+  }
+  #bt:hover {
+    background-color: rgba(41, 154, 240, 0.479);
+    color: whitesmoke;
+  }

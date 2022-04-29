@@ -1,11 +1,12 @@
 import React from "react";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { getPokemonsByName } from "../../Redux/Action/index";
+import { getPokemonsByName, getPokemons } from "../../Redux/Action/index";
+import "../SearchBar/searchBar.css";
 
 export default function SearchBar() {
   const dispatch = useDispatch();
-  const [name, setName] = useState("");
+  const [name, setName] = useState(" ");
 
   function handleImputChange(e) {
     e.preventDefault();
@@ -14,7 +15,6 @@ export default function SearchBar() {
   function handleSubmit(e) {
     e.preventDefault();
     dispatch(getPokemonsByName(name));
-    alert("Pokemon Encontrado!!");
   }
   return (
     <div className="busca">

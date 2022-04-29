@@ -1,15 +1,88 @@
-.continer{
+body{
     
-    display: flex;
+   
+    background-image: url("https://www.teahub.io/photos/full/304-3049893_anime-landscape-sunset-plants-field-sky-anime-red.jpg");
+    background-repeat: no-repeat;
+   
+    background-size: cover;
 
 
 }
 .nav{
-   float: left;
-   text-align: center;
-   
-    
+    overflow: hidden;
+    background-color: rgba(237, 36, 46, 0.609);
+    margin-bottom: 25px;
+  border-radius: 1em;
+  border-style:groove;
+  border-color: rgba(41, 154, 240, 0.479);
+  border-width: 0.5em;
+    top: 0;
+    width: 100%;
+
+  }
+
+  .nav > li {
+      float: none;
+      display: inline-block;
+    }
+    .nav img {
+        float: left;
+        display: block;
+        height: 100px;
+        width: 130px;
+      }
+      .nav .btnI {
+        float: right;
+        font-family: monospace;
+        border: none;
+        font-size: 25px;
+        font-weight: bold;
+        cursor: pointer;
+        padding: 0px 16px;
+        color: whitesmoke;
+        justify-content: center;
+        transition-duration: 0.4s;
+        background-color: transparent;
+        border-radius: 1em;
+      }
+      .nav .btnI:hover {
+        background-color: rgba(51, 121, 233, 0.698);
+        color: white;
+        border-radius: 5px;
+      }
+      .nav .searchDiv {
+        float: right;
+        padding: 13px ;
+      }
+
+
+
+
+
+.navItem li button select{    
+    color: #fff;
+    text-decoration: none;
+    padding: 0 15px;
+    height: 20px;
+    vertical-align: middle;
+    font-size: 50px;
+    font-weight: 500;
+    display: flex;  
+    flex-wrap: wrap;
 }
+.navItem {    
+    display: flex;
+    flex: 1;  
+    justify-content: space-around;  
+    list-style: none;
+    padding: 20px 0 0 10px;
+}
+.selectBox{
+    height:40px;
+   width:200px;
+   
+}
+
 .cards{
    
     display: flex;
@@ -19,15 +92,21 @@
     
    
 }
-.selectBox{
-    height: 40px;
-    border-radius: 5%;
-    font-size: 12px; 
-    font-weight: 500;
-    box-shadow: rgba(0, 0, 0, 0.05) 0px 1px 0px 0px;
-    text-align: center;
-    min-width: 60px;
-    }
-   
 
+.loaderHome{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(243, 247, 247);
+  width: 600px;
+  margin:auto;
+  border-radius: 1em;
+  margin-top: 10em;
+  border-style: double;
+  border-color: rgba(238, 45, 45, 0.705);
+  border-width: 1em;
+  font-size:x-large;
+  color: red;
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
 

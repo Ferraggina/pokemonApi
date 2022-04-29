@@ -1,0 +1,87 @@
+.containerDetail{
+    background-color: rgba(55, 39, 231, 0.788);
+    width: 30rem;
+    height: 40rem;
+    margin: auto;
+    border-radius: 2rem;
+    background-image: url("file:///C:/Users/ceffe/OneDrive/Desktop/PI-Pokemon-main/client/src/assets/fondoDetail.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    border-color: rgba(0, 102, 255, 0.736);
+    border-style: solid;
+    border-width: 0.5rem;
+    margin-top: 6em;
+    
+}
+.titleDetail{
+    background-color: rgba(75, 122, 203, 0.754);
+    
+    text-align: center;
+    border-radius: 00.5rem;
+    border-style: groove;
+}
+.detailRow{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size:larger;
+    font-weight: 600;
+    color: rgb(243, 243, 243);
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    
+    
+}
+.detail{
+    background-color: rgba(255, 0, 4, 0.758);
+    border-radius: 0.5em;
+    border-style:outset;
+    padding-left: 10px;
+    padding-right: 10px;
+    
+    border-color: rgb(81, 0, 255);
+    
+    margin-bottom: 2px;
+}
+.detailImg{
+    display: flex;
+    justify-content: center;
+    width: 50%;
+    margin-top: 10px;
+    
+}
+.size-img{
+    width: 230px;
+    height: 200px;
+    margin-bottom: 100px; 
+    background-color: rgba(43, 155, 224, 0.591);
+    border-color: rgba(41, 100, 235, 0.507);
+    border-width: 00.2em;
+    border-style: groove;
+    border-radius: 0.5em;
+}
+.loaderDetail{
+    display: flex;
+    align-items: center;
+    margin-left: 20em;
+    margin-top: 8em;
+    font-size: xx-large;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+   
+}
+.boton{
+    background-color: rgba(53, 122, 234, 0.89);
+    font-family:fantasy;
+   font-size: x-large;
+   font-weight:bolder;
+   cursor: pointer;
+   border-radius: 0.5em;
+   padding-left: 0.5em;
+   padding-right: 0.5em;
+   padding-top: 0.2em;
+   padding-bottom: 0.2em;
+   border: 1px solid #157fd6e1;
+   color: aliceblue;
+   box-shadow: rgba(0, 0, 0, 0.732) 0px 1px 0px 0px;
+
+}
