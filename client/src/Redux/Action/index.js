@@ -7,12 +7,15 @@ import {
   ORDER_BY_NAME,
   ORDER_BY_SRENGTH,
   FILTER_ALL,
+  CLEAN,
+  FILTRAR_NORMAL_MAS,
 } from "./Constantes";
 import axios from "axios";
 
 export function getPokemons() {
   return async function (dispatch) {
     var json = await axios.get("http://localhost:3001/pokemons");
+
     return dispatch({
       type: GET_POKEMONS,
 
@@ -29,6 +32,7 @@ export function getTypes() {
     });
   };
 }
+
 export function postPokemon(payload) {
   return async function () {
     try {
@@ -81,24 +85,7 @@ export function orderByStrength(payload) {
     payload,
   };
 }
-// export function getPokemonsByName(payload) {
-//   return async function (dispatch) {
-//     try {
-//       var json = await axios.get(
-//         `http://localhost:3001/pokemons?name=${payload}`
-//       );
-//     } catch (error) {
-//       console.log(error);
-//     } finally {
-//       if (json) {
-//         return dispatch({
-//           type: GET_POKEMON_BY_NAME,
-//           payload: json.data,
-//         });
-//       } else return alert("Pokemon no encontrado");
-//     }
-//   };
-// }
+
 export function getPokemonsByName(payload) {
   return async function (dispatch) {
     try {
@@ -114,6 +101,7 @@ export function getPokemonsByName(payload) {
     }
   };
 }
+
 export function getPokemonById(id) {
   return async (dispatch) => {
     try {
@@ -126,5 +114,16 @@ export function getPokemonById(id) {
     } catch (error) {
       console.log(error);
     }
+  };
+}
+export function clean() {
+  return {
+    type: CLEAN,
+  };
+}
+export function filtrarPorMas(payload) {
+  return {
+    type: FILTRAR_NORMAL_MAS,
+    payload,
   };
 }

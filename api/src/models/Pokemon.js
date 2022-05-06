@@ -33,7 +33,7 @@ module.exports = (sequelize) => {
     weight: {
       type: DataTypes.INTEGER,
     },
-    //image
+
     createdInDb: {
       type: DataTypes.BOOLEAN,
       defaultValue: true,

@@ -8,6 +8,7 @@ import {
   ORDER_BY_NAME,
   ORDER_BY_SRENGTH,
   FILTER_ALL,
+  CLEAN,
 } from "../Action/Constantes";
 
 const initialState = {
@@ -59,9 +60,9 @@ function rootReducer(state = initialState, action) {
       };
 
     case ORDER_BY_DEFAULT:
-      let dbArray = state.pokemons.filter((e) => e.id.length > 5);
-      let apiArray = state.pokemons.filter((e) => typeof e.id === "number");
-      let defaulArr = apiArray.sort((a, b) => {
+      // let dbArray = state.pokemons.filter((e) => e.id.length > 5);
+      // let apiArray = state.pokemons.filter((e) => typeof e.id === "number");
+      let defaulArr = state.pokemons.sort((a, b) => {
         if (a.id > b.id) {
           return 1;
         }
@@ -70,7 +71,7 @@ function rootReducer(state = initialState, action) {
         }
         return 0;
       });
-      defaulArr = [...dbArray, ...apiArray];
+      // defaulArr = [...dbArray, ...apiArray];
       return {
         ...state,
         pokemons: defaulArr,
@@ -78,20 +79,20 @@ function rootReducer(state = initialState, action) {
     case ORDER_BY_NAME:
       let sortedArr =
         action.payload === "asc"
-          ? state.pokemons.sort(function (a, b) {
-              if (a.name > b.name) {
+          ? state.pokemonsCopia.sort(function (a, b) {
+              if (a.name.toLowerCase() > b.name.toLowerCase()) {
                 return 1;
               }
-              if (b.name > a.name) {
+              if (b.name.toLowerCase() > a.name.toLowerCase()) {
                 return -1;
               }
               return 0;
             })
-          : state.pokemons.sort(function (a, b) {
-              if (a.name > b.name) {
+          : state.pokemonsCopia.sort(function (a, b) {
+              if (a.name.toLowerCase() > b.name.toLowerCase()) {
                 return -1;
               }
-              if (b.name > a.name) {
+              if (b.name.toLowerCase() > a.name.toLowerCase()) {
                 return 1;
               }
               return 0;
@@ -112,6 +113,11 @@ function rootReducer(state = initialState, action) {
       return {
         ...state,
         pokemons: sortedArrSren,
+      };
+    case CLEAN:
+      return {
+        ...state,
+        pokemonDetail: [],
       };
 
     default:

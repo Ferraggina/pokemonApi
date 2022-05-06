@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useParams } from "react-router-dom";
-import { getPokemonById } from "../../Redux/Action/index";
+import { getPokemonById, clean } from "../../Redux/Action/index";
 import "../Detail/detail.css";
 
 export default function Detail() {
@@ -11,6 +11,7 @@ export default function Detail() {
 
   useEffect(() => {
     setTimeout(() => dispatch(getPokemonById(id)), 2000);
+    dispatch(clean());
   }, [dispatch, id]);
 
   return (

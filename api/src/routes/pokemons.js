@@ -7,6 +7,7 @@ const {
 } = require("../../utils/constantesGlobales");
 const { Router } = require("express");
 const router = Router();
+
 const getPokeApi = async () => {
   try {
     const totalPokeReq = await axios.get(URL_API_POKE);

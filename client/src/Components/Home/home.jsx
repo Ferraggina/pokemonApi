@@ -4,7 +4,6 @@ import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import {
   getPokemons,
-  getPokemonsByName,
   getTypes,
   filterPokemonsByType,
   filterCreated,
@@ -147,6 +146,7 @@ export default function Home() {
                 <option value="desc">Ordenar: Z-A</option>
                 <option value="strMax">Ordenar: Max Fuerza</option>
                 <option value="strMin">Ordenar: Min Fuerza</option>
+                
               </select>
             </li>
             <li>
